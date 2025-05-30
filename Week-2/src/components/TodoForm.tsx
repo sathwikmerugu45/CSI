@@ -11,9 +11,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate input
-    const trimmedText = text.trim();
+        const trimmedText = text.trim();
     if (!trimmedText) {
       setError('Task cannot be empty');
       return;
@@ -29,7 +27,6 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
       return;
     }
     
-    // Add todo and reset form
     onAddTodo(trimmedText);
     setText('');
     setError('');

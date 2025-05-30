@@ -23,9 +23,7 @@ const TodoApp: React.FC = () => {
 
   const getFilteredAndSortedTodos = () => {
     let filteredTodos = todos;
-    
-    // Apply filters
-    if (filter === 'active') {
+        if (filter === 'active') {
       filteredTodos = todos.filter(todo => !todo.completed);
     } else if (filter === 'completed') {
       filteredTodos = todos.filter(todo => todo.completed);

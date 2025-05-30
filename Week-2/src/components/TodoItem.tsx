@@ -19,7 +19,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
     }
     
     setIsDeleting(true);
-    // Add a small delay to show the animation
     setTimeout(() => {
       onDelete(todo.id);
       setShowDeleteConfirm(false);
