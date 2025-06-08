@@ -14,16 +14,25 @@ A modern, feature-rich todo list application built with React, TypeScript, and T
 - 🎨 Beautiful gradient backgrounds and transitions
 
 ## Getting Started
+git clone https://github.com/sathwikmerugu45/CSI.git
+cd Week-2
+2️⃣ Install Dependencies
+bash
+Copy
+Edit
+npm install
+3️⃣ Run Development Server
+bash
+Copy
+Edit
+npm run dev
+Visit: http://localhost:5173
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+4️⃣ Build for Production
+bash
+Copy
+Edit
+npm run build
 
 ## Usage
 
