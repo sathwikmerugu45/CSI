@@ -17,8 +17,8 @@ An **Admin Dashboard** application built using **React + TypeScript**, featuring
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd <repo-folder>
+git clone https://github.com/sathwikmerugu45/CSI.git
+cd Week-3
 2️⃣ Install Dependencies
 bash
 Copy
