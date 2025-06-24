@@ -1,128 +1,167 @@
-# React Admin Dashboard
+A Modern Music Streaming Application built using React + TypeScript, featuring:
 
-An **Admin Dashboard** application built using **React + TypeScript**, featuring:
+✅ Advanced Music Player with Queue Management
 
-✅ Customizable Themes  
-✅ Interactive Kanban Board  
-✅ Responsive Calendar with Event Modal  
-✅ Data-rich Tables with Modal  
-✅ Analytics Charts  
-✅ Settings Management  
-✅ Smooth UI & Seamless UX
+✅ Dynamic Playlist Creation & Management
 
----
+✅ Real-time Search with Smart Filtering
 
-## 🚀 Project Setup & Installation
+✅ Album & Artist Discovery
 
-### 1️⃣ Clone the Repository
+✅ Genre-based Music Exploration
 
-```bash
-git clone https://github.com/sathwikmerugu45/CSI.git
-cd Week-5
+✅ Recently Played & Favorites Tracking
+
+✅ Responsive Design & Smooth Animations
+
+✅ Professional UI/UX with Dark Theme
+
+🚀 Project Setup & Installation
+1️⃣ Clone the Repository
+
+git clone <your-repository-url>
+cd spotify-2.0-clone
 2️⃣ Install Dependencies
-bash
-Copy
-Edit
+
 npm install
 3️⃣ Run Development Server
-bash
-Copy
-Edit
+
 npm run dev
 Visit: http://localhost:5173
 
 4️⃣ Build for Production
-bash
-Copy
-Edit
+
 npm run build
 🗂 Project Structure & Code Explanation
-pgsql
-Copy
-Edit
+
 src/
 ├── components/
-│   ├── calendar/         # Calendar & Event Modal
-│   ├── charts/           # Analytics Charts (e.g., line, bar, pie charts)
-│   ├── dashboard/        # Dashboard overview with metric cards
-│   ├── kanban/           # Fully interactive Kanban board
-│   ├── layout/           # App Layout (Header, Sidebar, Layout wrapper)
-│   ├── settings/         # Settings screen
-│   ├── tables/           # Data Tables with Modal
+│   ├── Header.tsx           # Navigation header with search & user controls
+│   ├── Sidebar.tsx          # Main navigation sidebar with playlists
+│   ├── MainContent.tsx      # Content router for different views
+│   ├── MusicPlayer.tsx      # Bottom music player with full controls
+│   ├── HomeView.tsx         # Home dashboard with recommendations
+│   ├── SearchView.tsx       # Search interface with filtering
+│   ├── PlaylistView.tsx     # Detailed playlist view with song list
+│   ├── SongItem.tsx         # Individual song component with play controls
 │
-├── contexts/             # React Context (Global State & Theme)
-├── data/                 # Static Mock Data
-├── hooks/                # Custom React Hooks (useLocalStorage)
-├── types/                # TypeScript types
-├── App.tsx               # Root App Component
-├── main.tsx              # Entry Point
+├── hooks/
+│   ├── useMusicPlayer.tsx   # Music player state management
+│
+├── data/
+│   ├── mockData.ts          # Mock music data (songs, albums, playlists)
+│
+├── types/
+│   ├── index.ts             # TypeScript interfaces & types
+│
+├── utils/
+│   ├── formatTime.ts        # Time formatting utilities
+│
+├── App.tsx                  # Root App Component with routing logic
+├── main.tsx                 # Entry Point
 🛠️ Logic & Implementation
-1️⃣ Theming & Context
-ThemeContext manages light/dark mode and stores theme preference in localStorage using useLocalStorage hook.
+1️⃣ Music Player State Management
+useMusicPlayer.tsx manages the global music player state using React Context and useReducer:
 
-Global app state is managed via DataContext for cross-component communication.
+Current song playback and queue management
+Play/pause, next/previous, shuffle, and repeat controls
+Volume control and progress tracking
+Queue manipulation (add/remove songs)
+2️⃣ Navigation & Layout
+App.tsx handles view routing with history management:
 
-2️⃣ Layout
-Layout.tsx wraps the entire app.
+Browser-like back/forward navigation
+Dynamic view switching (Home, Search, Library, Playlists)
+URL-like routing with view parameters
+Sidebar.tsx provides main navigation:
 
-Sidebar.tsx handles navigation across Dashboard, Kanban, Calendar, Tables, Settings.
+Quick access to Home, Search, and Library
+Dynamic playlist listing
+User profile section
+3️⃣ Music Discovery
+HomeView.tsx displays personalized content:
 
-Header.tsx provides quick action buttons (theme toggle, user info).
+Time-based greetings (Good morning/afternoon/evening)
+Quick access to recently played playlists
+"Made for You" recommendations
+Popular artists with circular profile images
+SearchView.tsx offers comprehensive search:
 
-3️⃣ Kanban Board
-KanbanBoard.tsx displays all columns and tasks.
+Real-time search with debounced input
+Tabbed filtering (All, Songs, Playlists, Albums)
+Genre browsing with colorful cards
+Smart result categorization
+4️⃣ Playlist Management
+PlaylistView.tsx shows detailed playlist information:
 
-KanbanColumn.tsx renders individual columns with draggable cards.
+Large cover art with gradient backgrounds
+Comprehensive metadata (duration, song count, creator)
+Interactive song list with play controls
+Playlist-wide play/pause functionality
+5️⃣ Music Player Controls
+MusicPlayer.tsx provides full playback control:
 
-KanbanCard.tsx displays task details.
+Play/pause with visual feedback
+Progress bar with seek functionality
+Volume control with mute toggle
+Shuffle and repeat modes (none/all/one)
+Currently playing song information
+6️⃣ Song Interaction
+SongItem.tsx handles individual song display:
 
-TaskModal.tsx allows editing or creating new tasks.
+Hover effects with play button overlay
+Current song highlighting
+Context menu for additional actions
+Responsive layout for different view contexts
+7️⃣ Data Management
+mockData.ts provides realistic music data:
 
-Drag & Drop can be implemented using react-beautiful-dnd or similar libraries.
+Comprehensive song metadata (title, artist, album, duration, genre)
+Curated playlists with descriptions and follower counts
+Album information with release dates
+User profile data with preferences
+8️⃣ Utility Functions
+formatTime.ts handles time formatting:
 
-4️⃣ Calendar
-Calendar.tsx displays monthly/weekly calendar.
-
-EventModal.tsx allows adding/updating/deleting events.
-
-Events are persisted in localStorage or backend (if connected).
-
-5️⃣ Dashboard & Charts
-DashboardOverview.tsx displays overall stats.
-
-MetricsCard.tsx shows quick KPIs.
-
-AnalyticsCharts.tsx renders interactive charts using a charting library (Chart.js, Recharts, etc).
-
-6️⃣ Data Table
-DataTable.tsx displays tabular data with sorting, filtering, pagination.
-
-UserModal.tsx allows editing user details.
-
-7️⃣ Settings
-Settings.tsx allows updating app configurations and preferences.
-
-8️⃣ Custom Hook: useLocalStorage
-Encapsulates the logic of syncing state with browser localStorage.
-
-Used for persisting theme and user settings.
-
-9️⃣ Mock Data
-mockData.ts provides initial data for Dashboard, Kanban, Tables without needing a backend.
-
+Seconds to MM:SS conversion for song durations
+Human-readable duration formatting (hours/minutes)
+🎨 Design Features
+Visual Design
+Dark Theme: Professional Spotify-inspired color scheme
+Gradient Backgrounds: Dynamic gradients for headers and cards
+Glass Morphism: Subtle transparency effects for modern look
+Hover States: Interactive feedback on all clickable elements
+Animations & Interactions
+Smooth Transitions: CSS transitions for all state changes
+Micro-interactions: Button hover effects and loading states
+Progressive Disclosure: Context-sensitive controls and information
+Responsive Layout: Optimized for desktop, tablet, and mobile
+Typography & Spacing
+Consistent Hierarchy: Clear visual hierarchy with proper font weights
+8px Grid System: Consistent spacing throughout the interface
+Readable Contrast: WCAG-compliant color contrast ratios
+Truncation Handling: Proper text overflow management
 🧩 Technologies Used
-React + TypeScript
-
-Vite for fast development
-
-TailwindCSS for styling
-
-React Context API for global state
-
-Chart.js / Recharts for charts
-
-react-beautiful-dnd (recommended) for Kanban drag-and-drop
-
-React Calendar / FullCalendar (optional) for Calendar implementation
-
-React Modal for modals
+React + TypeScript for type-safe component development
+Vite for fast development and optimized builds
+Tailwind CSS for utility-first styling and responsive design
+Lucide React for consistent iconography
+React Context API for global state management
+CSS Grid & Flexbox for advanced layouts
+CSS Custom Properties for dynamic theming
+🎵 Features Breakdown
+Core Music Features
+Playback Control: Play, pause, skip, shuffle, repeat
+Queue Management: Dynamic song queuing and reordering
+Volume Control: Adjustable volume with mute functionality
+Progress Tracking: Seekable progress bar with time display
+Discovery & Organization
+Smart Search: Real-time search across songs, albums, and playlists
+Genre Exploration: Curated genre categories with visual cards
+Playlist Management: Create, edit, and organize custom playlists
+Recently Played: Track and display listening history
+User Experience
+Responsive Design: Seamless experience across all device sizes
+Keyboard Navigation: Full keyboard accessibility support
+Loading States: Smooth loading indicators and skeleton screens
+Error Handling: Graceful error states and user feedback
